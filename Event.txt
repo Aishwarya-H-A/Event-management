@@ -1,0 +1,25 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+CREATE TABLE `events` (
+  `EventId` int(10) NOT NULL PRIMARY kEY,
+  `EventName` varchar(255) NOT NULL,
+  `EventDate` date(10) NOT NULL,
+  `OrganizerEmail` varchar(255) NOT NULL,
+  `OrganizerPhNo` int(10) NOT NULL,
+  `EventDescription` varchar(255) NOT NULL,
+  `EventType` varchar(255) NOT NULL,
+  `EventLocation` varchar(255) NOT NULL,
+  `EventStatus` varchar(255) NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `MaxSeats` int(10) NOT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `participants` (
+  `BookingId` int(10) NOT NULL PRIMARY KEY,
+  `EventId` int(10) NOT NULL FOREIGN KEY,
+  `BookedDate` date(10) NOT NULL,
+  `ParticipantName` varchar(255) NOT NULL,
+  `ParticipantEmail` varchar(255) NOT NULL,
+  `ParticipantPhNo` int(10) NOT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
